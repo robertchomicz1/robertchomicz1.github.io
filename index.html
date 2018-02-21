@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload="refreshPastPaper()">
+
+<script>
+paperYear = 12;
+paperMonth = "";
+C3Papers = "http://pmt.physicsandmathstutor.com/download/Maths/A-level/C3/Papers-Edexcel/";
+C4Papers = "http://pmt.physicsandmathstutor.com/download/Maths/A-level/C4/Papers-Edexcel/";
+M2Papers = "http://pmt.physicsandmathstutor.com/download/Maths/A-level/M2/Papers-Edexcel/";
+PapersSpecial = ["June 2013 (Withdrawn)", "June 2013 (R)", "June 2014 (R)"];
+
+//http://pmt.physicsandmathstutor.com/download/Maths/A-level/C4/Papers-Edexcel/June 2007 MA - C4 Edexcel.pdf
+
+function getDate()
+{
+	var paperMonthTemp = Math.floor(Math.random() * 2) + 1;
+
+	if (paperMonthTemp == 1) {
+		paperYear = Math.floor(Math.random() * 10) + 9;
+		paperMonth = "June";
+	} else {
+		paperYear = Math.floor(Math.random() * 7) + 6;
+		paperMonth = "January";
+	}
+}
+
+function getPastPaper(paperType, paperQPorMS) {
+
+	var date = "";
+	if (paperYear == 17)
+	{
+		date = PapersSpecial[0];
+	}
+	else if (paperYear == 18)
+	{
+		date = PapersSpecial[1];
+	}
+	else if (paperYear == 19)
+	{
+		date = PapersSpecial[2];
+	}
+	else if (paperYear > 9)
+	{
+		date = paperMonth+" "+"20"+paperYear.toString();
+	}
+	else
+	{
+		date = paperMonth+" "+"200"+paperYear.toString();
+	} 
+	
+	if (paperType == "C3") {
+	    var craftedURL = C3Papers + date + " " + paperQPorMS + " - " + paperType + " " + "Edexcel.pdf";
+	    window.open(craftedURL, "_blank")
+	}
+	if (paperType == "C4")
+	{
+	    var craftedURL = C4Papers + date + " " + paperQPorMS + " - " + paperType + " " + "Edexcel.pdf";
+		window.open(craftedURL, "_blank")
+	}
+	if (paperType == "M2")
+	{
+	    var craftedURL = M2Papers + date + " " + paperQPorMS + " - " + paperType + " " + "Edexcel.pdf";
+		window.open(craftedURL, "_blank")
+	}			
+}
+
+function refreshPastPaper() {
+	getDate();
+}
+</script>
+
+<button onclick="getPastPaper('C3', 'QP')">Get Past Paper (C3)</button>
+<button onclick="getPastPaper('C4', 'QP')">Get Past Paper (C4)</button>
+<button onclick="getPastPaper('M2', 'QP')">Get Past Paper (M2)</button>
+<br />
+<button onclick="getPastPaper('C3', 'QP')">Get Past Paper Answers (C3)</button>
+<button onclick="getPastPaper('C4'. 'QP')">Get Past Paper Answers (C4)</button>
+<button onclick="getPastPaper('M2', 'QP')">Get Past Paper Answers (M2) </button>
+<br />
+<button onclick="refreshPastPaper()">Refresh Past Paper</button>
+
+</body>
+</html>
