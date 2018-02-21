@@ -4,7 +4,7 @@
 </head>
 <body onload="refreshPastPaper()">
 
-<script>
+    <script>
 paperYear = 12;
 paperMonth = "";
 C3Papers = "http://pmt.physicsandmathstutor.com/download/Maths/A-level/C3/Papers-Edexcel/";
@@ -49,14 +49,13 @@ function getPastPaper(paperType, paperQPorMS) {
 	else
 	{
 		date = paperMonth+" "+"200"+paperYear.toString();
-	} 
-	
+	}
+
 	if (paperType == "C3") {
 	    var craftedURL = C3Papers + date + " " + paperQPorMS + " - " + paperType + " " + "Edexcel.pdf";
 	    window.open(craftedURL, "_blank")
 	}
-	if (paperType == "C4")
-	{
+	if (paperType == "C4"){
 	    var craftedURL = C4Papers + date + " " + paperQPorMS + " - " + paperType + " " + "Edexcel.pdf";
 		window.open(craftedURL, "_blank")
 	}
@@ -64,23 +63,23 @@ function getPastPaper(paperType, paperQPorMS) {
 	{
 	    var craftedURL = M2Papers + date + " " + paperQPorMS + " - " + paperType + " " + "Edexcel.pdf";
 		window.open(craftedURL, "_blank")
-	}			
+	}
 }
 
 function refreshPastPaper() {
 	getDate();
 }
-</script>
+    </script>
 
-<button onclick="getPastPaper('C3', 'QP')">Get Past Paper (C3)</button>
-<button onclick="getPastPaper('C4', 'QP')">Get Past Paper (C4)</button>
-<button onclick="getPastPaper('M2', 'QP')">Get Past Paper (M2)</button>
-<br />
-<button onclick="getPastPaper('C3', 'MS')">Get Past Paper Answers (C3)</button>
-<button onclick="getPastPaper('C4'. 'MS')">Get Past Paper Answers (C4)</button>
-<button onclick="getPastPaper('M2', 'MS')">Get Past Paper Answers (M2) </button>
-<br />
-<button onclick="refreshPastPaper()">Refresh Past Paper</button>
+    <button onclick="getPastPaper('C3', 'QP')">Get Past Paper (C3)</button>
+    <button onclick="getPastPaper('C4', 'QP')">Get Past Paper (C4)</button>
+    <button onclick="getPastPaper('M2', 'QP')">Get Past Paper (M2)</button>
+    <br />
+    <button onclick="getPastPaper('C3', 'MS')">Get Past Paper Answers (C3)</button>
+    <button onclick="getPastPaper('C4', 'MS')">Get Past Paper Answers (C4)</button>
+    <button onclick="getPastPaper('M2', 'MS')">Get Past Paper Answers (M2) </button>
+    <br />
+    <button onclick="refreshPastPaper()">Refresh Past Paper</button>
 
 </body>
 </html>
